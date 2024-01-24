@@ -3,26 +3,19 @@
  * @return {boolean}
  */
 var isPalindrome = function(s) {
-    for(let i=0;i<s.length;i++){
-        if('A'<=s[i]<='Z'){
-            s[i]= s[i] + 32;
-        }
-        else{
-            if(!('a'<=s[i]<='z')){
-            s[i]= '';
-            }
-        }
-    }
-    console.log(s)
 
-    let right = s.length-1;
-    let left = 0;
-    while(left < right){
-        if(s[left] != s[right]){
+    s = s.replace(/[^a-zA-Z0-9]/g ,'')
+    s = s.toLowerCase()
+
+    let R = s.length-1;
+    let L = 0;
+    while(L < R){
+        if(s[L] !== s[R]){
+            console.log(s[L], s[R])
             return false;
         }
-        left++;
-        right--;
+        L++;
+        R--;
     }
     return true;
 };
